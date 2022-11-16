@@ -8,10 +8,10 @@ import (
 )
 
 /*
-	Read_All_Input reads all lines in a file and []string.
-	Any further manipulation requires converting to the desired type.
+ReadAllInput reads all lines in a file and []string.
+Any further manipulation requires converting to the desired type.
 */
-func Read_All_Input(filename string) []string {
+func ReadAllInput(filename string) []string {
 	var input []string
 	file, err := os.Open(filename)
 	if err != nil {
@@ -28,9 +28,9 @@ func Read_All_Input(filename string) []string {
 }
 
 /*
-	Read_All_Input_Int will parse an input file and return an integer input set.
+ReadAllInputInt will parse an input file and return an integer input set.
 */
-func Read_All_Input_Int(filename string) []int {
+func ReadAllInputInt(filename string) []int {
 	var input []int
 	file, err := os.Open(filename)
 	if err != nil {

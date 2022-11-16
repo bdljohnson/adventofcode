@@ -6,6 +6,8 @@ import (
 	"log"
 )
 
+var _testing = false
+
 // InputData represents various ways of accessing advent of code input data
 type InputData struct {
 	integerInput  []int //
@@ -20,11 +22,18 @@ func (i *InputData) GetIntInput() []int {
 var Input = InputData{}
 
 func init() {
+	if _testing {
+		return
+	}
 	var filename string
 	var inputType string
 	flag.StringVar(&filename, "filename", "", "Filename of input")
 	flag.StringVar(&inputType, "input-type", "integer", "Input type")
 	flag.Parse()
+
+	if len(filename) == 0 {
+		log.Fatal("Requires a filename!")
+	}
 
 	switch inputType {
 	case "integer":
@@ -36,6 +45,6 @@ func init() {
 }
 
 func processInt(filename string) []int {
-	input := Read_All_Input_Int(filename)
+	input := ReadAllInputInt(filename)
 	return input
 }

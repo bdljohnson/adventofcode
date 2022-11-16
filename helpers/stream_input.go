@@ -8,9 +8,9 @@ import (
 )
 
 /*
-	Streams input from a file
+Streams input from a file
 */
-func stream_input(filename string) {
+func StreamInput(filename string) {
 	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal("Could not open file:\n", err)
