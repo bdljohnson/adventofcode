@@ -14,7 +14,6 @@ func run_two(input []int) {
 		}
 		window1 := input[i-3] + input[i-2] + input[i-1]
 		window2 := input[i-2] + input[i-1] + v
-		fmt.Println(window1, window2)
 		if window2 > window1 {
 			result += 1
 		}
@@ -22,7 +21,18 @@ func run_two(input []int) {
 	fmt.Printf("Input length: %v, Total Increases: %v\n", len(input), result)
 }
 
+func run_one(input []int) {
+	result := 0
+	for i := range input {
+		if i > 0 && input[i] > input[i-1] {
+			result += 1
+		}
+	}
+	fmt.Printf("Total increases for run one: %v\n", result)
+}
+
 func main() {
 	input := helpers.Input.GetIntInput()
+	run_one(input)
 	run_two(input)
 }

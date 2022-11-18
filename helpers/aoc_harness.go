@@ -19,6 +19,10 @@ func (i *InputData) GetIntInput() []int {
 	return i.integerInput
 }
 
+func (i *InputData) GetStringInput() []string {
+	return i.stringInput
+}
+
 var Input = InputData{}
 
 func init() {
@@ -38,6 +42,8 @@ func init() {
 	switch inputType {
 	case "integer":
 		Input.integerInput = processInt(filename)
+	case "string":
+		Input.stringInput = ReadAllInput(filename)
 	default:
 		log.Fatal("Invalid input type")
 	}
